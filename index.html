@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820"><title>Emberfield — Pixel Adventure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="#" data-go="home"><span class="logo">E</span><span><b>EMBERFIELD</b><small>2.5D PIXEL ADVENTURE</small></span></a>
+    <span class="build"><i></i> MENU PROTOTYPE</span>
+  </header>
+  <main>
+    <section class="view home active" id="view-home">
+      <div class="hero-copy">
+        <p class="eyebrow">A LITTLE WORLD IS WAITING</p>
+        <h1>Make this<br><em>world yours.</em></h1>
+        <p class="intro">A quiet pixel adventure is taking shape. Set up your player, tune your preferences, and step into the first little scene.</p>
+        <div class="actions"><button class="btn primary large" data-go="username">NEW GAME <b>→</b></button><button class="btn secondary large" data-go="settings">SETTINGS <b>⚙</b></button></div>
+        <p class="keys-note">MOVE <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> OR ARROW KEYS</p>
+      </div>
+      <div class="world-card">
+        <div class="world-meta"><span>FIELD NOTES <b>01</b></span><span>● CLEAR SKIES</span></div>
+        <div class="landscape"><i class="sun"></i><i class="cloud c1"></i><i class="cloud c2"></i><i class="mountain m1"></i><i class="mountain m2"></i><i class="hill h1"></i><i class="hill h2"></i><i class="path"></i><i class="tree t1"></i><i class="tree t2"></i><div class="caption"><b>THE FIRST CLEARING</b><span>Somewhere beyond the map</span></div></div>
+        <div class="world-meta bottom-meta"><span>■ 2.5D EXPLORATION</span><span>MAP: COMING SOON</span></div>
+      </div>
+    </section>
+
+    <section class="view" id="view-settings">
+      <div class="heading"><div><p class="eyebrow">MAKE IT COMFORTABLE</p><h2>Settings</h2></div><span class="tag">PREFERENCES</span></div>
+      <div class="settings-layout">
+        <div class="settings-card">
+          <label class="setting" for="volume"><span class="icon">♫</span><span class="setting-text"><b>Master volume</b><small>Game sounds and effects</small></span><span class="control"><output id="volume-value">70%</output><input id="volume" type="range" min="0" max="100" value="70"></span></label>
+          <label class="setting" for="sensitivity"><span class="icon">⌖</span><span class="setting-text"><b>Movement sensitivity</b><small>How quickly your player moves</small></span><span class="control"><output id="sensitivity-value">1.0×</output><input id="sensitivity" type="range" min="50" max="200" value="100"></span></label>
+          <label class="setting" for="texture-size"><span class="icon">▦</span><span class="setting-text"><b>Texture size</b><small>Pixel detail in the game view</small></span><span class="control"><select id="texture-size"><option value="160">Small · chunky</option><option value="240" selected>Medium · classic</option><option value="320">Large · fine</option></select></span></label>
+          <div class="setting test-row"><span class="icon">♪</span><span class="setting-text"><b>Check your audio</b><small>Plays a short tone at selected volume</small></span><button id="test-sound" class="btn secondary small">TEST SOUND</button></div>
+        </div>
+        <aside class="aside"><span class="spark">✳</span><h3>Your choices<br>stay saved.</h3><p>Preferences are stored in this browser on this device. Adjust them any time before playing.</p><hr><small>READY WHEN YOU ARE</small></aside>
+      </div>
+      <div class="footer-actions"><button class="btn quiet" data-go="home">← BACK</button><button class="btn primary" data-go="home">DONE <b>→</b></button></div>
+    </section>
+
+    <section class="view" id="view-username">
+      <div class="wizard">
+        <div class="heading"><div><p class="eyebrow">YOUR ADVENTURE BEGINS</p><h2>Who’s exploring?</h2></div><span class="tag">01 <i>/</i> 02</span></div>
+        <div class="name-card"><div class="person-icon"><i></i></div><label for="player-name">Choose a player name</label><p>This is what friends will call you in the world.</p><input id="player-name" type="text" maxlength="16" placeholder="e.g. Rowan" autocomplete="nickname"><div class="input-hint"><span>2–16 characters</span><span id="name-count">0 / 16</span></div><p id="name-error" class="error" role="alert"></p></div>
+        <div class="footer-actions"><button class="btn quiet" data-go="home">← BACK</button><button id="name-continue" class="btn primary">CUSTOMIZE <b>→</b></button></div>
+      </div>
+    </section>
+
+    <section class="view" id="view-customize">
+      <div class="heading"><div><p class="eyebrow">MAKE YOURSELF AT HOME</p><h2>Your character</h2></div><span class="tag">02 <i>/</i> 02</span></div>
+      <div class="custom-layout">
+        <div class="preview-card"><span class="preview-label">PLAYER PREVIEW</span><canvas id="avatar-preview" width="192" height="224"></canvas><b id="preview-name" class="preview-name">PLAYER</b><small>READY TO EXPLORE</small></div>
+        <div class="custom-controls">
+          <div class="custom-section"><h3>Outfit</h3><p>Pick a starting look</p><div class="outfits">
+            <button class="swatch selected" data-outfit="moss" aria-label="Moss green outfit"><i style="--swatch:#5d8b68"></i><span>MOSS</span></button>
+            <button class="swatch" data-outfit="sunset" aria-label="Sunset orange outfit"><i style="--swatch:#dd8057"></i><span>SUNSET</span></button>
+            <button class="swatch" data-outfit="ocean" aria-label="Ocean blue outfit"><i style="--swatch:#5485a4"></i><span>OCEAN</span></button>
+            <button class="swatch" data-outfit="berry" aria-label="Berry purple outfit"><i style="--swatch:#9b70aa"></i><span>BERRY</span></button>
+          </div></div>
+          <div class="custom-section"><h3>Details</h3><p>A couple little finishing touches</p>
+            <label class="color-choice"><span><i class="dot hair-dot"></i><b>Hair color</b></span><input id="hair-color" type="color" value="#4c332a"></label>
+            <label class="color-choice"><span><i class="dot eye-dot"></i><b>Eye color</b></span><input id="eye-color" type="color" value="#6daaa1"></label>
+          </div>
+        </div>
+      </div>
+      <div class="footer-actions"><button class="btn quiet" data-go="username">← BACK</button><button id="play-game" class="btn primary">ENTER THE WORLD <b>→</b></button></div>
+    </section>
+
+    <section class="view" id="view-game">
+      <div class="game-heading"><div><p class="eyebrow">A SMALL BEGINNING</p><h2>The First Clearing</h2></div><div class="player-label"><i></i><span id="game-player-name">PLAYER</span><button class="btn secondary small" data-go="home">MENU</button></div></div>
+      <div class="game-frame"><canvas id="game-canvas" width="960" height="540" aria-label="Pixel art exploration scene"></canvas><span class="scene-label">■ EARLY BUILD</span><span class="scene-prompt">FIND YOUR WAY</span></div>
+      <div class="game-footer"><span><b>MOVE</b> WASD / ARROWS <i>·</i> <b>LOOK AROUND</b> TAKE A LITTLE WANDER</span><button class="btn quiet" data-go="settings">⚙ SETTINGS</button></div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>EMBERFIELD <i>·</i> A WORLD IN THE MAKING</span><span>YOUR PROGRESS IS SAVED ON THIS DEVICE</span></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
